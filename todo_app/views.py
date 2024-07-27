@@ -42,7 +42,7 @@ def loginuser(request):
             return redirect('currenttodos')
 
 def logoutuser(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         logout(request)
         return redirect('home')
 

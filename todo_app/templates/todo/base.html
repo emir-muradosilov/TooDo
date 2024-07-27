@@ -40,9 +40,13 @@
 
         </ul>
     {% endif %}
+
     <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-                <li class="nav-item">
+                    <li class="nav-item">
+                    <a class="nav-link"> {{ user.username }} </a>
+                    </li>
+                    <li class="nav-item">
                     <a href="#" onclick="$('#signOutBtn').click()" class="nav-link">Выйти из аккаунта</a>
                     <form style='display: none;' method="POST" action="{% url 'logoutuser' %}">
                         {% csrf_token %}
@@ -51,10 +55,10 @@
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'signupuser' %}">Sign Up</a>
+                    <a class="nav-link" href="{% url 'signupuser' %}">Зарегистрироваться</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'loginuser' %}">Login</a>
+                    <a class="nav-link" href="{% url 'loginuser' %}">Войти в аккаунт</a>
                 </li>
             {% endif %}
         </ul>
